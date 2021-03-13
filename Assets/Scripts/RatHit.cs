@@ -19,17 +19,11 @@ public class RatHit : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void HitRat()
     {
-        if (true)
-        {
-            if (collision.gameObject.name.Equals("PixelRock(Clone)"))
-            {
                 movementScript.KillThis();
                 anim.Play("Rat_Death");
                 Destroy(GetComponent<Rigidbody2D>());
                 Destroy(GetComponent<PolygonCollider2D>());
-            }
-        }
     }
 }

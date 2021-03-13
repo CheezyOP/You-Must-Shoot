@@ -25,6 +25,10 @@ public class TimeScript : MonoBehaviour
         {
             GetComponent<Text>().text = "Time: " + Mathf.RoundToInt(time / 60).ToString() + "m " + Mathf.RoundToInt(time % 60).ToString() + "s";
         }
-        
+    }
+
+    public int GetTime()
+    {
+        return Mathf.RoundToInt(time);
     }
 }
