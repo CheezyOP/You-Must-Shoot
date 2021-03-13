@@ -57,7 +57,7 @@ public class RockImpact : MonoBehaviour
                 GetComponent<AudioSource>().pitch = Random.Range((float)0.6, (float)1.4);
                 GetComponent<AudioSource>().Play();
             }
-            else if (collision.gameObject.name.Contains("Rat"))
+            else if (gameObject.name.Equals("PixelRock(Clone)") && collision.gameObject.name.Contains("Rat"))
             {
                 int nextRatSound = Random.Range(1, 7);
 
