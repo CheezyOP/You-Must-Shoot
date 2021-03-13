@@ -13,7 +13,7 @@ public class Shooting : MonoBehaviour
 
     public GameObject bulletPrefab;
 
-    public float bulletForce = 20f;
+    private float bulletForce = 10f;
 
     public Text amountOfStonesTxt;
     public float amountOfStones;
@@ -45,7 +45,7 @@ public class Shooting : MonoBehaviour
             }
         }
 
-        SetStoneAmount(amountOfStones);
+        SetStoneAmountText(amountOfStones);
     }
 
     void Shoot(int fireDirection)
@@ -81,7 +81,18 @@ public class Shooting : MonoBehaviour
         }
     }
 
+    public void IncreaseBulletForce(float bulletForce)
+    {
+        this.bulletForce += bulletForce;
+    }
+
     public void SetStoneAmount(float amountOfStones)
+    {
+        this.amountOfStones = amountOfStones;
+        amountOfStonesTxt.text = amountOfStones.ToString();
+    }
+
+    public void SetStoneAmountText(float amountOfStones)
     {
         amountOfStonesTxt.text = amountOfStones.ToString();
     }

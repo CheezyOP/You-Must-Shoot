@@ -45,7 +45,8 @@ public class RockImpact : MonoBehaviour
                 GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
                 Destroy(effect, 5f);
             }
-            else if ((collision.gameObject.name.Contains("PixelRock") && gameObject.name.Contains("PixelRock")))
+            else if ((collision.gameObject.name.Contains("PixelRock") && gameObject.name.Contains("PixelRock")) &&
+                (gameObject.GetComponent<Rigidbody2D>().velocity.x > 0.1 || gameObject.GetComponent<Rigidbody2D>().velocity.y > 0.1))
             {
                 GetComponent<AudioSource>().clip = collisionSoundRocksTouch;
                 GetComponent<AudioSource>().pitch = Random.Range((float)0.6, (float)1.4);
@@ -57,8 +58,11 @@ public class RockImpact : MonoBehaviour
                 GetComponent<AudioSource>().pitch = Random.Range((float)0.6, (float)1.4);
                 GetComponent<AudioSource>().Play();
             }
-            else if (collision.gameObject.name.Contains("Rat"))
+            else if (gameObject.name.Contains("PixelRock") && collision.gameObject.name.Contains("Rat") && 
+                (gameObject.GetComponent<Rigidbody2D>().velocity.x > 0.5 || gameObject.GetComponent<Rigidbody2D>().velocity.y > 0.5))
             {
+                collision.gameObject.GetComponent<RatHit>().HitRat();
+
                 int nextRatSound = Random.Range(1, 7);
 
                 switch (nextRatSound)
