@@ -13,17 +13,11 @@ public class RatHit : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void HitRat()
     {
-                movementScript.KillThis();
-                anim.Play("Rat_Death");
-                Destroy(GetComponent<Rigidbody2D>());
-                Destroy(GetComponent<PolygonCollider2D>());
+        movementScript.KillThis();
+        anim.Play("Rat_Death");
+        Destroy(GetComponent<Rigidbody2D>());
+        Destroy(GetComponent<PolygonCollider2D>());
     }
 }

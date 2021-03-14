@@ -88,19 +88,25 @@ namespace Cainos.PixelArtTopDown_Basic
         {
             if (collision.gameObject.name.Contains("MovementSpeed"))
             {
-                Destroy(collision.gameObject);
+                HandleUpgradePickup(collision);
                 getMovementSpeedUpgrade();
             }
             else if (collision.gameObject.name.Contains("ThrowSpeed"))
             {
-                Destroy(collision.gameObject);
+                HandleUpgradePickup(collision);
                 getThrowSpeedUpgrade();
             }
             else if (collision.gameObject.name.Contains("Shrink"))
             {
-                Destroy(collision.gameObject);
+                HandleUpgradePickup(collision);
                 getShrinkUpgrade();
             }
+        }
+
+        private void HandleUpgradePickup(Collision2D collision)
+        {
+            GetComponent<AudioSource>().Play();
+            Destroy(collision.gameObject);
         }
 
         private void getMovementSpeedUpgrade()
