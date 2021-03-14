@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TimeScript : MonoBehaviour
 {
-    private float time;
+    public float time;
 
     // Start is called before the first frame update
     void Start()
@@ -23,17 +23,12 @@ public class TimeScript : MonoBehaviour
         }
         else
         {
-            GetComponent<Text>().text = "Time: " + Mathf.RoundToInt(time / 60).ToString() + "m " + Mathf.RoundToInt(time % 60).ToString() + "s";
+            GetComponent<Text>().text = "Time: " + Mathf.FloorToInt(time / 60).ToString() + "m " + Mathf.RoundToInt(time % 60).ToString() + "s";
         }
     }
 
     public int GetTime()
     {
         return Mathf.RoundToInt(time);
-    }
-
-    public float GetAccurateTime()
-    {
-        return time;
     }
 }

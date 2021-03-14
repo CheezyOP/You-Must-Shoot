@@ -50211,8 +50211,8 @@ MonoBehaviour:
   spawn9: {fileID: 1875230300}
   ratPrefab: {fileID: 6323138492035583859, guid: e4c443f8307896a469c26a5846d173ae, type: 3}
   timeScript: {fileID: 1295075347}
-  increasedSpawnratePerSeconds: 15
-  spawnratePerSeconds: 8
+  increasedSpawnratePerSeconds: 5
+  spawnratePerSeconds: 7
   StartingRatAmount: 4
 --- !u!4 &1056863540
 Transform:
@@ -56601,6 +56601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c198e2e3570c8349a9149008f438437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 0
 --- !u!114 &1295075348
 MonoBehaviour:
   m_ObjectHideFlags: 0
