@@ -7,33 +7,52 @@ public class EnemySpawns : MonoBehaviour
     public Transform spawn1;
     public Transform spawn2;
     public Transform spawn3;
+    public Transform spawn4;
+    public Transform spawn5;
+    public Transform spawn6;
+    public Transform spawn7;
+    public Transform spawn8;
+    public Transform spawn9;
 
     public GameObject ratPrefab;
     public TimeScript timeScript;
 
+    private int time;
+
     public int increasedSpawnratePerSeconds;
     public double spawnratePerSeconds;
+    public int StartingRatAmount;
 
     private bool hasBeenSpawned;
     private bool spawnrateReadjusted;
 
-    // Start is called before the first frame update
     void Start()
     {
+        time = timeScript.GetTime();
         hasBeenSpawned = false;
         spawnrateReadjusted = false;
+
+        for (int i = 0; i < StartingRatAmount; i++)
+        {
+            SpawnRat();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        int time = timeScript.GetTime();
-        
+        time = timeScript.GetTime();
+
+        SpawnRat();
+        UpdateSpawnRate();
+    }
+
+    private void SpawnRat()
+    {
         if (time % spawnratePerSeconds == 0 && !hasBeenSpawned)
         {
-            int nextRatSound = Random.Range(1, 4);
+            int nextRatPlace = Random.Range(1, 10);
 
-            switch (nextRatSound)
+            switch (nextRatPlace)
             {
                 case 1:
                     Instantiate(ratPrefab, spawn1.position, spawn1.rotation);
@@ -43,6 +62,24 @@ public class EnemySpawns : MonoBehaviour
                     break;
                 case 3:
                     Instantiate(ratPrefab, spawn3.position, spawn3.rotation);
+                    break;
+                case 4:
+                    Instantiate(ratPrefab, spawn4.position, spawn4.rotation);
+                    break;
+                case 5:
+                    Instantiate(ratPrefab, spawn5.position, spawn5.rotation);
+                    break;
+                case 6:
+                    Instantiate(ratPrefab, spawn6.position, spawn6.rotation);
+                    break;
+                case 7:
+                    Instantiate(ratPrefab, spawn7.position, spawn7.rotation);
+                    break;
+                case 8:
+                    Instantiate(ratPrefab, spawn8.position, spawn8.rotation);
+                    break;
+                case 9:
+                    Instantiate(ratPrefab, spawn9.position, spawn9.rotation);
                     break;
                 default:
                     break;
@@ -54,11 +91,14 @@ public class EnemySpawns : MonoBehaviour
         {
             hasBeenSpawned = false;
         }
-        
+    }
+
+    private void UpdateSpawnRate()
+    {
         if (time % increasedSpawnratePerSeconds == 0 && !spawnrateReadjusted)
         {
             spawnrateReadjusted = true;
-            if (spawnratePerSeconds > 1)
+            if (spawnratePerSeconds >= 1)
             {
                 spawnratePerSeconds--;
             }
