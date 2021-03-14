@@ -23,7 +23,7 @@ public class TimeScript : MonoBehaviour
         }
         else
         {
-            GetComponent<Text>().text = "Time: " + Mathf.RoundToInt(time / 60).ToString() + "m " + Mathf.RoundToInt(time % 60).ToString() + "s";
+            GetComponent<Text>().text = "Time: " + Mathf.FloorToInt(time / 60).ToString() + "m " + Mathf.RoundToInt(time % 60).ToString() + "s";
         }
     }
 

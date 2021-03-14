@@ -20,36 +20,52 @@ public class EnemySpawns : MonoBehaviour
     private int time;
 
     public int increasedSpawnratePerSeconds;
-    public double spawnratePerSeconds;
+    public int spawnratePerSeconds;
     public int StartingRatAmount;
 
+    private int spawnRate;
     private bool hasBeenSpawned;
     private bool spawnrateReadjusted;
+    private int spawnsPerSpawntick;
 
     void Start()
     {
         time = timeScript.GetTime();
         hasBeenSpawned = false;
         spawnrateReadjusted = false;
+        spawnsPerSpawntick = 1;
+        spawnRate = spawnratePerSeconds;
 
         for (int i = 0; i < StartingRatAmount; i++)
         {
             SpawnRat();
         }
+        hasBeenSpawned = true;
     }
 
     void Update()
     {
         time = timeScript.GetTime();
 
-        SpawnRat();
+        if (time % spawnRate == 0 && !hasBeenSpawned)
+        {
+            for (int i = 0; i < spawnsPerSpawntick; i++)
+            {
+                SpawnRat();
+            }
+            hasBeenSpawned = true;
+        }
+
+        if (time % spawnRate == 1)
+        {
+            hasBeenSpawned = false;
+        }
+
         UpdateSpawnRate();
     }
 
     private void SpawnRat()
     {
-        if (time % spawnratePerSeconds == 0 && !hasBeenSpawned)
-        {
             int nextRatPlace = Random.Range(1, 10);
 
             switch (nextRatPlace)
@@ -84,13 +100,6 @@ public class EnemySpawns : MonoBehaviour
                 default:
                     break;
             }
-
-            hasBeenSpawned = true;
-        }
-        else if (time % spawnratePerSeconds == 1)
-        {
-            hasBeenSpawned = false;
-        }
     }
 
     private void UpdateSpawnRate()
@@ -98,13 +107,14 @@ public class EnemySpawns : MonoBehaviour
         if (time % increasedSpawnratePerSeconds == 0 && !spawnrateReadjusted)
         {
             spawnrateReadjusted = true;
-            if (spawnratePerSeconds >= 1)
+            if (spawnRate > 1)
             {
-                spawnratePerSeconds--;
+                spawnRate--;
             }
-            else if (spawnratePerSeconds <= 1 && spawnratePerSeconds > 0.1)
+            else
             {
-                spawnratePerSeconds -= 0.1;
+                spawnsPerSpawntick++;
+                spawnRate = spawnratePerSeconds;
             }
         }
         else if (time % increasedSpawnratePerSeconds == 1)
