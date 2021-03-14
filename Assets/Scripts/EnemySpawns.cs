@@ -23,10 +23,10 @@ public class EnemySpawns : MonoBehaviour
     public int spawnratePerSeconds;
     public int StartingRatAmount;
 
-    public int spawnRate;
+    private int spawnRate;
     private bool hasBeenSpawned;
     private bool spawnrateReadjusted;
-    public int spawnsPerSpawntick;
+    private int spawnsPerSpawntick;
 
     void Start()
     {
