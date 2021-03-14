@@ -17,7 +17,7 @@ public class EnemySpawns : MonoBehaviour
     public GameObject ratPrefab;
     public TimeScript timeScript;
 
-    private int time;
+    private float time;
 
     public int increasedSpawnratePerSeconds;
     public double spawnratePerSeconds;
@@ -28,7 +28,7 @@ public class EnemySpawns : MonoBehaviour
 
     void Start()
     {
-        time = timeScript.GetTime();
+        time = timeScript.GetAccurateTime();
         hasBeenSpawned = false;
         spawnrateReadjusted = false;
 

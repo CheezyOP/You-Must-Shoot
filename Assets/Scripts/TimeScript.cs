@@ -31,4 +31,9 @@ public class TimeScript : MonoBehaviour
     {
         return Mathf.RoundToInt(time);
     }
+
+    public float GetAccurateTime()
+    {
+        return time;
+    }
 }
