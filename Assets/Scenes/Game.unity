@@ -63516,7 +63516,7 @@ MonoBehaviour:
   firePointLeft: {fileID: 1287593860}
   bulletPrefab: {fileID: 3393103075659401052, guid: 069f20037830ed34cbf242628c0cc42d, type: 3}
   amountOfStonesTxt: {fileID: 45882602}
-  amountOfStones: 2
+  amountOfStones: 3
 --- !u!1 &1657403414
 GameObject:
   m_ObjectHideFlags: 0

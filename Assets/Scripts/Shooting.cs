@@ -16,7 +16,7 @@ public class Shooting : MonoBehaviour
     private float bulletForce = 10f;
 
     public Text amountOfStonesTxt;
-    public float amountOfStones;
+    public int amountOfStones;
 
     // Update is called once per frame
     void Update()
@@ -50,8 +50,7 @@ public class Shooting : MonoBehaviour
 
         if (fireDirection == 0 && transform.position.y < -9.2)
         {
-            amountOfStones--;
-            SetStoneAmountText(amountOfStones);
+            ThrowStone();
 
             GameObject bullet = Instantiate(bulletPrefab, firePointUp.position, firePointUp.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -60,8 +59,7 @@ public class Shooting : MonoBehaviour
         }
         else if (fireDirection == 1 && transform.position.x < -7.7)
         {
-            amountOfStones--;
-            SetStoneAmountText(amountOfStones);
+            ThrowStone();
 
             GameObject bullet = Instantiate(bulletPrefab, firePointRight.position, firePointRight.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -69,8 +67,7 @@ public class Shooting : MonoBehaviour
         }
         else if (fireDirection == 2 && transform.position.y > -50.2)
         {
-            amountOfStones--;
-            SetStoneAmountText(amountOfStones);
+            ThrowStone();
 
             GameObject bullet = Instantiate(bulletPrefab, firePointDown.position, firePointDown.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -78,8 +75,7 @@ public class Shooting : MonoBehaviour
         }
         else if (fireDirection == 3 && transform.position.x > -52.5)
         {
-            amountOfStones--;
-            SetStoneAmountText(amountOfStones);
+            ThrowStone();
 
             GameObject bullet = Instantiate(bulletPrefab, firePointLeft.position, firePointLeft.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -92,14 +88,21 @@ public class Shooting : MonoBehaviour
         this.bulletForce += bulletForce;
     }
 
-    public void SetStoneAmount(float amountOfStones)
+    public void SetStoneAmount(int amountOfStones)
     {
         this.amountOfStones = amountOfStones;
         amountOfStonesTxt.text = amountOfStones.ToString();
     }
 
-    public void SetStoneAmountText(float amountOfStones)
+    public void AddStone()
     {
+        this.amountOfStones++; 
+        amountOfStonesTxt.text = amountOfStones.ToString();
+    }
+
+    private void ThrowStone()
+    {
+        this.amountOfStones--; 
         amountOfStonesTxt.text = amountOfStones.ToString();
     }
 }

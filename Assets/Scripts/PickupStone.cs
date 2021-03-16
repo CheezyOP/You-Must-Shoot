@@ -11,7 +11,7 @@ public class PickupStone : MonoBehaviour
         if (collision.gameObject.name.Contains("PixelRock"))
         {
             Destroy(collision.gameObject);
-            shotScript.amountOfStones++;
+            shotScript.AddStone();
         }
     }
 }
