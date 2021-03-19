@@ -18,10 +18,9 @@ namespace Cainos.PixelArtTopDown_Basic
         public Text shrinkText;
         public Image shrinkIcon;
 
-        private int lives;
-        private bool takesDamage;
+        private bool activatedCheats;
 
-
+        public LivesManager livesManager;
         public Shooting shotScript;
 
         //Vector2 mousePos;
@@ -29,26 +28,26 @@ namespace Cainos.PixelArtTopDown_Basic
         private void Start()
         {
             animator = GetComponent<Animator>();
-            lives = 3;
-            takesDamage = true;
+            activatedCheats = false;
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-                if (takesDamage)
+                if (!activatedCheats)
                 {
-                    takesDamage = false;
+                    livesManager.ToggleInvincibility();
                     shotScript.SetStoneAmount(999);
 
                     getMovementSpeedUpgrade();
                     getShrinkUpgrade();
                     getThrowSpeedUpgrade();
+                    activatedCheats = true;
                 }
                 else
                 {
-                    takesDamage = true;
+                    activatedCheats = false;
                 }
             }
 
