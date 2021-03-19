@@ -8,13 +8,22 @@ namespace Cainos.PixelArtTopDown_Basic
     public class TopDownCharacterController : MonoBehaviour
     {
         public float speed;
+        public float movementSpeedUpgradeIncrease;
+        public float throwSpeedUpgradeIncrease;
+
         public Camera cam;
         private Animator animator;
 
         public Text movementSpeedText;
         public Image movementSpeedIcon;
+        public Text movementSpeedCounterText;
+        private int movementSpeedCounter;
+
         public Text throwSpeedText;
         public Image throwSpeedIcon;
+        public Text throwSpeedCounterText;
+        private int throwSpeedCounter;
+
         public Text shrinkText;
         public Image shrinkIcon;
 
@@ -29,6 +38,8 @@ namespace Cainos.PixelArtTopDown_Basic
         {
             animator = GetComponent<Animator>();
             activatedCheats = false;
+            movementSpeedCounter = 0;
+            throwSpeedCounter = 0;
         }
 
         private void Update()
@@ -110,16 +121,60 @@ namespace Cainos.PixelArtTopDown_Basic
 
         private void getMovementSpeedUpgrade()
         {
-            speed += 1;
-            movementSpeedText.color = new Color(movementSpeedText.color.r, movementSpeedText.color.g, movementSpeedText.color.b, 255);
-            movementSpeedIcon.color = new Color(movementSpeedIcon.color.r, movementSpeedIcon.color.g, movementSpeedIcon.color.b, 255);
+            if (movementSpeedCounter == 0)
+            {
+                movementSpeedText.color = new Color(movementSpeedText.color.r, movementSpeedText.color.g, movementSpeedText.color.b, 255);
+                movementSpeedIcon.color = new Color(movementSpeedIcon.color.r, movementSpeedIcon.color.g, movementSpeedIcon.color.b, 255);
+                movementSpeedCounterText.color = new Color(movementSpeedCounterText.color.r, movementSpeedCounterText.color.g, movementSpeedCounterText.color.b, 255);
+
+                speed += movementSpeedUpgradeIncrease;
+                movementSpeedCounter++;
+            }
+            else if (movementSpeedCounter < 10)
+            {
+                speed += movementSpeedUpgradeIncrease;
+                movementSpeedCounter++;
+
+                if (movementSpeedCounter == 7)
+                {
+                    movementSpeedCounterText.color = new Color(255 , 140, 0, 255);
+                }
+                else if (movementSpeedCounter == 10)
+                {
+                    movementSpeedCounterText.color = new Color(255, 0, 0, 255);
+                }
+            }
+
+            movementSpeedCounterText.text = movementSpeedCounter.ToString() + 'x';
         }
 
         private void getThrowSpeedUpgrade()
         {
-            shotScript.IncreaseBulletForce(3);
-            throwSpeedText.color = new Color(throwSpeedText.color.r, throwSpeedText.color.g, throwSpeedText.color.b, 255);
-            throwSpeedIcon.color = new Color(throwSpeedIcon.color.r, throwSpeedIcon.color.g, throwSpeedIcon.color.b, 255);
+            if (throwSpeedCounter == 0)
+            {
+                throwSpeedText.color = new Color(throwSpeedText.color.r, throwSpeedText.color.g, throwSpeedText.color.b, 255);
+                throwSpeedIcon.color = new Color(throwSpeedIcon.color.r, throwSpeedIcon.color.g, throwSpeedIcon.color.b, 255);
+                throwSpeedCounterText.color = new Color(throwSpeedCounterText.color.r, throwSpeedCounterText.color.g, throwSpeedCounterText.color.b, 255);
+
+                throwSpeedCounter++;
+                shotScript.IncreaseBulletForce(throwSpeedUpgradeIncrease);
+            }
+            else if (throwSpeedCounter < 20)
+            {
+                throwSpeedCounter++;
+                shotScript.IncreaseBulletForce(throwSpeedUpgradeIncrease);
+
+                if (throwSpeedCounter == 15)
+                {
+                    throwSpeedCounterText.color = new Color(255, 140, 0, 255);
+                }
+                else if (throwSpeedCounter == 20)
+                {
+                    throwSpeedCounterText.color = new Color(255, 0, 0, 255);
+                }
+            }
+
+            throwSpeedCounterText.text = throwSpeedCounter.ToString() + 'x';
         }
 
         private void getShrinkUpgrade()
