@@ -16,7 +16,7 @@ public class Shooting : MonoBehaviour
     private float bulletForce = 10f;
 
     public Text amountOfStonesTxt;
-    public float amountOfStones;
+    public int amountOfStones;
 
     // Update is called once per frame
     void Update()
@@ -26,26 +26,20 @@ public class Shooting : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Shoot(0);
-                amountOfStones--;
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 Shoot(1);
-                amountOfStones--;
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Shoot(2);
-                amountOfStones--;
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 Shoot(3);
-                amountOfStones--;
             }
         }
-
-        SetStoneAmountText(amountOfStones);
     }
 
     void Shoot(int fireDirection)
@@ -54,27 +48,35 @@ public class Shooting : MonoBehaviour
         Vector3 EulerAngleVelocity = new Vector3(0, 100, 0);
         Quaternion deltaRotation = Quaternion.Euler(EulerAngleVelocity * Time.deltaTime);
 
-        if (fireDirection == 0)
+        if (fireDirection == 0 && transform.position.y < -9.2)
         {
+            ThrowStone();
+
             GameObject bullet = Instantiate(bulletPrefab, firePointUp.position, firePointUp.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.MoveRotation(deltaRotation);
             rb.AddForce(firePointUp.up * bulletForce, ForceMode2D.Impulse);
         }
-        else if (fireDirection == 1)
+        else if (fireDirection == 1 && transform.position.x < -7.7)
         {
+            ThrowStone();
+
             GameObject bullet = Instantiate(bulletPrefab, firePointRight.position, firePointRight.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePointRight.right * bulletForce, ForceMode2D.Impulse);
         }
-        else if (fireDirection == 2)
+        else if (fireDirection == 2 && transform.position.y > -50.2)
         {
+            ThrowStone();
+
             GameObject bullet = Instantiate(bulletPrefab, firePointDown.position, firePointDown.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(-firePointDown.up * bulletForce, ForceMode2D.Impulse);
         }
-        else
+        else if (fireDirection == 3 && transform.position.x > -52.5)
         {
+            ThrowStone();
+
             GameObject bullet = Instantiate(bulletPrefab, firePointLeft.position, firePointLeft.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(-firePointLeft.right * bulletForce, ForceMode2D.Impulse);
@@ -86,14 +88,21 @@ public class Shooting : MonoBehaviour
         this.bulletForce += bulletForce;
     }
 
-    public void SetStoneAmount(float amountOfStones)
+    public void SetStoneAmount(int amountOfStones)
     {
         this.amountOfStones = amountOfStones;
         amountOfStonesTxt.text = amountOfStones.ToString();
     }
 
-    public void SetStoneAmountText(float amountOfStones)
+    public void AddStone()
     {
+        this.amountOfStones++; 
+        amountOfStonesTxt.text = amountOfStones.ToString();
+    }
+
+    private void ThrowStone()
+    {
+        this.amountOfStones--; 
         amountOfStonesTxt.text = amountOfStones.ToString();
     }
 }

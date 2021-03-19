@@ -54,9 +54,11 @@ public class RockImpact : MonoBehaviour
         else if ((collision.gameObject.name.Contains("PixelRock") && gameObject.name.Contains("PixelRock")) &&
             (Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.x) + Mathf.Abs(gameObject.GetComponent<Rigidbody2D>().velocity.y) >= 0.4))
         {
-            GetComponent<AudioSource>().clip = collisionSoundRocksTouch;
-            GetComponent<AudioSource>().pitch = Random.Range((float)0.6, (float)1.4);
-            GetComponent<AudioSource>().Play();
+            if (collision.gameObject != null) {
+                GetComponent<AudioSource>().clip = collisionSoundRocksTouch;
+                GetComponent<AudioSource>().pitch = Random.Range((float)0.6, (float)1.4);
+                GetComponent<AudioSource>().Play();
+            }
         }
         else if (collision.gameObject.name.Contains("Pot"))
         {

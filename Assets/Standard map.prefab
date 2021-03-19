@@ -2484,6 +2484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1175232935437904198}
   - component: {fileID: 5877192919811152408}
+  - component: {fileID: -4089611122365090298}
   m_Layer: 31
   m_Name: Standard map
   m_TagString: Untagged
@@ -2518,6 +2519,21 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &-4089611122365090298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594650241581338675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970617dd8064c6646a4bb3c67cd6ddd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartImage1: {fileID: 0}
+  heartImage2: {fileID: 0}
+  heartImage3: {fileID: 0}
 --- !u!114 &5096092300251651584
 MonoBehaviour:
   m_ObjectHideFlags: 0
