@@ -42,7 +42,6 @@ public class EnemySpawns : MonoBehaviour
         for (int i = 0; i < StartingRatAmount; i++)
         {
             SpawnEnemy(ratPrefab);
-            SpawnEnemy(batPrefab);
         }
         hasBeenSpawned = true;
     }

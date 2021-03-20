@@ -72,7 +72,6 @@ public class RockImpact : MonoBehaviour
             if (collision.gameObject.name.Contains("Bat"))
             {
                 collision.gameObject.GetComponent<BatHit>().HitBat();
-                GetComponent<AudioSource>().pitch = Random.Range((float)1.1, (float)1.3);
             }
             else
             {
