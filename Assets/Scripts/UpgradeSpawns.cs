@@ -45,14 +45,14 @@ public class UpgradeSpawns : MonoBehaviour
     {
         Transform newTransform = gameObject.AddComponent<Transform>();
         Vector3 upgradePlacement = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
-        if (nextSpawnedUpgrade == 1)
+        if (nextSpawnedUpgrade < 3)
         {
-            Instantiate(movementSpeedUpgradePrefab, upgradePlacement, Quaternion.identity);
-            nextSpawnedUpgrade = 2;
+            Instantiate(throwSpeedUpgradePrefab, upgradePlacement, Quaternion.identity);
+            nextSpawnedUpgrade++;
         }
         else
         {
-            Instantiate(throwSpeedUpgradePrefab, upgradePlacement, Quaternion.identity);
+            Instantiate(movementSpeedUpgradePrefab, upgradePlacement, Quaternion.identity);
             nextSpawnedUpgrade = 1;
         }
         hasBeenSpawned = true;
