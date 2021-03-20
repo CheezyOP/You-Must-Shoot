@@ -10,29 +10,43 @@ public class EnemyAttack : MonoBehaviour
     private Animator anim;
 
     private TimeScript timeScript;
+    private int collisionTime;
     private int time;
     private int previousTime;
+    private bool needsToLoseLife;
 
     // Start is called before the first frame update
     void Start()
     {
         previousTime = 0;
+        collisionTime = 0;
+        time = 0;
+        needsToLoseLife = false;
         anim = GetComponent<Animator>();
         playerLives = GameObject.FindGameObjectWithTag("PF Player").GetComponent<LivesManager>();
         timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
         time = timeScript.GetTime();
-        if (time - previousTime > 2)
+        if (time - previousTime == 1 && needsToLoseLife)
         {
-            time = timeScript.GetTime();
-            if (collision.gameObject.name.Contains("Player"))
+            playerLives.LoseLife();
+            needsToLoseLife = false;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Contains("Player"))
+        {
+            collisionTime = timeScript.GetTime();
+            if (collisionTime - previousTime > 2)
             {
                 anim.Play(animationName);
-                playerLives.LoseLife();
-                previousTime = time;
+                previousTime = collisionTime;
+                needsToLoseLife = true;
             }
         }
     }
