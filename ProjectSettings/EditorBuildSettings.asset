@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 92d5a201bf892af42a121bb5c5b1c875
   - enabled: 1
-    path: Assets/Scenes/Help screen.unity
+    path: Assets/Scenes/Control screen.unity
     guid: 659cbc6e5d96b9842a7b7d3a6b97211b
+  - enabled: 1
+    path: Assets/Scenes/Help screen.unity
+    guid: 0f0ec2220ff11634ab01cda4605616dd
+  - enabled: 1
+    path: Assets/Scenes/Death screen.unity
+    guid: 1d3836fd19b2eaa45892d0285ce5b4f3
   m_configObjects: {}

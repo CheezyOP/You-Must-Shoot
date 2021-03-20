@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PF Player
+  - Time
+  - KillCounter
   layers:
   - Default
   - TransparentFX

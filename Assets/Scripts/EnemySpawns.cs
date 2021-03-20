@@ -15,8 +15,9 @@ public class EnemySpawns : MonoBehaviour
     public Transform spawn9;
 
     public GameObject ratPrefab;
-    public TimeScript timeScript;
+    public GameObject batPrefab;
 
+    private TimeScript timeScript;
     private int time;
 
     public int increasedSpawnratePerSeconds;
@@ -26,19 +27,22 @@ public class EnemySpawns : MonoBehaviour
     private int spawnRate;
     private bool hasBeenSpawned;
     private bool spawnrateReadjusted;
-    private int spawnsPerSpawntick;
+    private int spawnsRatPerSpawntick;
+    private int spawnsBatPerSpawntick;
 
     void Start()
     {
+        timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
         time = timeScript.GetTime();
         hasBeenSpawned = false;
         spawnrateReadjusted = false;
-        spawnsPerSpawntick = 1;
+        spawnsRatPerSpawntick = 1;
+        spawnsBatPerSpawntick = 0;
         spawnRate = spawnratePerSeconds;
 
         for (int i = 0; i < StartingRatAmount; i++)
         {
-            SpawnRat();
+            SpawnEnemy(ratPrefab);
         }
         hasBeenSpawned = true;
     }
@@ -49,9 +53,14 @@ public class EnemySpawns : MonoBehaviour
 
         if (time % spawnRate == 0 && !hasBeenSpawned)
         {
-            for (int i = 0; i < spawnsPerSpawntick; i++)
+            for (int i = 0; i < spawnsRatPerSpawntick; i++)
             {
-                SpawnRat();
+                SpawnEnemy(ratPrefab);
+            }
+
+            for (int i = 0; i < spawnsBatPerSpawntick; i++)
+            {
+                SpawnEnemy(batPrefab);
             }
             hasBeenSpawned = true;
         }
@@ -64,38 +73,38 @@ public class EnemySpawns : MonoBehaviour
         UpdateSpawnRate();
     }
 
-    private void SpawnRat()
+    private void SpawnEnemy(GameObject enemyPrefab)
     {
-            int nextRatPlace = Random.Range(1, 10);
+            int nextEnemyPlace = Random.Range(1, 10);
 
-            switch (nextRatPlace)
+            switch (nextEnemyPlace)
             {
                 case 1:
-                    Instantiate(ratPrefab, spawn1.position, spawn1.rotation);
+                    Instantiate(enemyPrefab, spawn1.position, spawn1.rotation);
                     break;
                 case 2:
-                    Instantiate(ratPrefab, spawn2.position, spawn2.rotation);
+                    Instantiate(enemyPrefab, spawn2.position, spawn2.rotation);
                     break;
                 case 3:
-                    Instantiate(ratPrefab, spawn3.position, spawn3.rotation);
+                    Instantiate(enemyPrefab, spawn3.position, spawn3.rotation);
                     break;
                 case 4:
-                    Instantiate(ratPrefab, spawn4.position, spawn4.rotation);
+                    Instantiate(enemyPrefab, spawn4.position, spawn4.rotation);
                     break;
                 case 5:
-                    Instantiate(ratPrefab, spawn5.position, spawn5.rotation);
+                    Instantiate(enemyPrefab, spawn5.position, spawn5.rotation);
                     break;
                 case 6:
-                    Instantiate(ratPrefab, spawn6.position, spawn6.rotation);
+                    Instantiate(enemyPrefab, spawn6.position, spawn6.rotation);
                     break;
                 case 7:
-                    Instantiate(ratPrefab, spawn7.position, spawn7.rotation);
+                    Instantiate(enemyPrefab, spawn7.position, spawn7.rotation);
                     break;
                 case 8:
-                    Instantiate(ratPrefab, spawn8.position, spawn8.rotation);
+                    Instantiate(enemyPrefab, spawn8.position, spawn8.rotation);
                     break;
                 case 9:
-                    Instantiate(ratPrefab, spawn9.position, spawn9.rotation);
+                    Instantiate(enemyPrefab, spawn9.position, spawn9.rotation);
                     break;
                 default:
                     break;
@@ -113,8 +122,19 @@ public class EnemySpawns : MonoBehaviour
             }
             else
             {
-                spawnsPerSpawntick++;
+                spawnsRatPerSpawntick++;
                 spawnRate = spawnratePerSeconds;
+
+                if (spawnsBatPerSpawntick != 0)
+                {
+                    spawnsBatPerSpawntick++;
+                }
+            }
+
+            if (spawnsRatPerSpawntick == 5 && spawnsBatPerSpawntick == 0)
+            {
+                spawnsRatPerSpawntick--;
+                spawnsRatPerSpawntick++;
             }
         }
         else if (time % increasedSpawnratePerSeconds == 1)

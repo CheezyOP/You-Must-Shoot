@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private Transform player;
-    public float moveSpeed = 5f;
+    public float moveSpeed;
     private Rigidbody2D rb;
     private Vector2 movement;
     private bool dead = false;
