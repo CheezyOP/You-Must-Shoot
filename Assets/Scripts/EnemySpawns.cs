@@ -27,8 +27,7 @@ public class EnemySpawns : MonoBehaviour
     private int spawnRate;
     private bool hasBeenSpawned;
     private bool spawnrateReadjusted;
-    private int spawnsRatPerSpawntick;
-    private int spawnsBatPerSpawntick;
+    private int spawnsPerSpawntick;
 
     void Start()
     {
@@ -36,8 +35,7 @@ public class EnemySpawns : MonoBehaviour
         time = timeScript.GetTime();
         hasBeenSpawned = false;
         spawnrateReadjusted = false;
-        spawnsRatPerSpawntick = 1;
-        spawnsBatPerSpawntick = 0;
+        spawnsPerSpawntick = 1;
         spawnRate = spawnratePerSeconds;
 
         for (int i = 0; i < StartingRatAmount; i++)
@@ -53,14 +51,18 @@ public class EnemySpawns : MonoBehaviour
 
         if (time % spawnRate == 0 && !hasBeenSpawned)
         {
-            for (int i = 0; i < spawnsRatPerSpawntick; i++)
+            for (int i = 0; i < spawnsPerSpawntick; i++)
             {
-                SpawnEnemy(ratPrefab);
-            }
+                int enemyDecider = Random.Range(1, 6);
 
-            for (int i = 0; i < spawnsBatPerSpawntick; i++)
-            {
-                SpawnEnemy(batPrefab);
+                if (enemyDecider == 1)
+                {
+                    SpawnEnemy(batPrefab);
+                }
+                else
+                {
+                    SpawnEnemy(ratPrefab);
+                }
             }
             hasBeenSpawned = true;
         }
@@ -122,19 +124,8 @@ public class EnemySpawns : MonoBehaviour
             }
             else
             {
-                spawnsRatPerSpawntick++;
+                spawnsPerSpawntick++;
                 spawnRate = spawnratePerSeconds;
-
-                if (spawnsBatPerSpawntick != 0)
-                {
-                    spawnsBatPerSpawntick++;
-                }
-            }
-
-            if (spawnsRatPerSpawntick == 5 && spawnsBatPerSpawntick == 0)
-            {
-                spawnsRatPerSpawntick--;
-                spawnsRatPerSpawntick++;
             }
         }
         else if (time % increasedSpawnratePerSeconds == 1)
