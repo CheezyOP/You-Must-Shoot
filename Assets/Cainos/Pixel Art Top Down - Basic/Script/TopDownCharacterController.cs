@@ -13,6 +13,7 @@ namespace Cainos.PixelArtTopDown_Basic
 
         public Camera cam;
         private Animator animator;
+        public AudioClip upgradeSound;
 
         public Text movementSpeedText;
         public Image movementSpeedIcon;
@@ -115,6 +116,7 @@ namespace Cainos.PixelArtTopDown_Basic
 
         private void HandleUpgradePickup(Collision2D collision)
         {
+            GetComponent<AudioSource>().clip = upgradeSound;
             GetComponent<AudioSource>().Play();
             Destroy(collision.gameObject);
         }

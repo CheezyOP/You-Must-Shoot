@@ -9,7 +9,8 @@ public class LivesManager : MonoBehaviour
     public Image heartImage2;
     public Image heartImage3;
 
-    private int lives;
+    public AudioClip meow;
+    public int lives;
     private bool isInvincible;
 
     void Start()
@@ -23,11 +24,13 @@ public class LivesManager : MonoBehaviour
         if (!isInvincible)
         {
             lives--;
-            if (lives == 2 && heartImage3.color.a == 255)
+            PlayMeow();
+
+            if (lives == 2)
             {
                 heartImage3.color = new Color(heartImage3.color.r, heartImage3.color.g, heartImage3.color.b, 0);
             }
-            else if (lives == 1 && heartImage2.color.a == 255)
+            else if (lives == 1)
             {
                 heartImage2.color = new Color(heartImage2.color.r, heartImage2.color.g, heartImage2.color.b, 0);
             }
@@ -41,5 +44,11 @@ public class LivesManager : MonoBehaviour
     public void ToggleInvincibility()
     {
         isInvincible = !isInvincible;
+    }
+
+    private void PlayMeow()
+    {
+        GetComponent<AudioSource>().clip = meow;
+        GetComponent<AudioSource>().Play();
     }
 }

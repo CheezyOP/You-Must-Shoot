@@ -16,8 +16,8 @@ public class EnemySpawns : MonoBehaviour
 
     public GameObject ratPrefab;
     public GameObject batPrefab;
-    public TimeScript timeScript;
 
+    private TimeScript timeScript;
     private int time;
 
     public int increasedSpawnratePerSeconds;
@@ -32,6 +32,7 @@ public class EnemySpawns : MonoBehaviour
 
     void Start()
     {
+        timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
         time = timeScript.GetTime();
         hasBeenSpawned = false;
         spawnrateReadjusted = false;

@@ -7,7 +7,7 @@ public class UpgradeSpawns : MonoBehaviour
     public GameObject movementSpeedUpgradePrefab;
     public GameObject throwSpeedUpgradePrefab;
 
-    public TimeScript timeScript;
+    private TimeScript timeScript;
     private int time;
     private bool hasBeenSpawned;
     private int nextSpawnedUpgrade;
@@ -20,6 +20,7 @@ public class UpgradeSpawns : MonoBehaviour
 
     void Start()
     {
+        timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
         time = timeScript.GetTime();
         hasBeenSpawned = false;
         nextSpawnedUpgrade = 1;

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6323138492035583864}
   - component: {fileID: 6323138492035583865}
   - component: {fileID: 6323138492035583866}
+  - component: {fileID: -5299026115887862276}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -190,4 +191,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementScript: {fileID: 6323138492035583865}
-  bloodSplatter: {fileID: 7341127925549406834, guid: d35850b8244b38a4cb5139f6fe1f52f1, type: 3}
+--- !u!114 &-5299026115887862276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323138492035583859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff9cb77948d9c14bab24f64107dbe5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationName: Rat_Attack

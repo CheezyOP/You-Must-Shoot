@@ -56103,7 +56103,6 @@ MonoBehaviour:
   spawn9: {fileID: 1875230300}
   ratPrefab: {fileID: 6323138492035583859, guid: e4c443f8307896a469c26a5846d173ae, type: 3}
   batPrefab: {fileID: 3974102111719762107, guid: 9a4c7413550ec404eb5c4d9a724a4e7d, type: 3}
-  timeScript: {fileID: 1295075347}
   increasedSpawnratePerSeconds: 24
   spawnratePerSeconds: 8
   StartingRatAmount: 3
@@ -56144,7 +56143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeedUpgradePrefab: {fileID: 2461406884138981863, guid: e19c2edcde1af124fa627ee9ec872d65, type: 3}
   throwSpeedUpgradePrefab: {fileID: 716015742885166612, guid: 5ef7acbeb54c97246bcdfb5f8d20471f, type: 3}
-  timeScript: {fileID: 1295075347}
   spawnRate: 60
   minX: -52.8
   maxX: -7.9
@@ -63625,7 +63623,7 @@ GameObject:
   - component: {fileID: 1295075347}
   m_Layer: 5
   m_Name: Time
-  m_TagString: Untagged
+  m_TagString: Time
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68034,6 +68032,8 @@ MonoBehaviour:
   heartImage1: {fileID: 117412758}
   heartImage2: {fileID: 870128631}
   heartImage3: {fileID: 1504503770}
+  meow: {fileID: 8300000, guid: b65b77bda9cfd1e4e8d7e03df598d272, type: 3}
+  lives: 0
 --- !u!1 &1657403414
 GameObject:
   m_ObjectHideFlags: 0
@@ -74502,6 +74502,10 @@ PrefabInstance:
       propertyPath: livesManager
       value: 
       objectReference: {fileID: 1655444124}
+    - target: {fileID: 5628018141983903119, guid: ef67ba864d1ecc042b5f4cf48455c0a6, type: 3}
+      propertyPath: upgradeSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6448e0c6e0b87be4c986eeaa2ca13ba1, type: 3}
     - target: {fileID: 5628018141983903119, guid: ef67ba864d1ecc042b5f4cf48455c0a6, type: 3}
       propertyPath: throwSpeedIcon
       value: 
