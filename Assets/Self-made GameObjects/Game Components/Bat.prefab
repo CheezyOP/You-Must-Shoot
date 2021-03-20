@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -9169780507493386712}
   - component: {fileID: 7301318424707379442}
   - component: {fileID: 6309609845365694799}
-  - component: {fileID: 6773570642620629295}
+  - component: {fileID: -2505981986996758529}
   - component: {fileID: 6107068926832783251}
   m_Layer: 0
   m_Name: Bat
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.8
---- !u!114 &6773570642620629295
+--- !u!114 &-2505981986996758529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
