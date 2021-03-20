@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PF Player
   - Time
+  - KillCounter
   layers:
   - Default
   - TransparentFX

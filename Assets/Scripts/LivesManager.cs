@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LivesManager : MonoBehaviour
@@ -36,7 +37,8 @@ public class LivesManager : MonoBehaviour
             }
             else if (lives == 0)
             {
-                //TODO Deathscreen
+                heartImage1.color = new Color(heartImage1.color.r, heartImage1.color.g, heartImage1.color.b, 0);
+                SceneManager.LoadScene("Death screen");
             }
         }
     }
