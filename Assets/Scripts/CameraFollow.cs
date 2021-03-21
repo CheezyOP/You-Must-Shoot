@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Cainos.PixelArtTopDown_Basic
 {
     public class CameraFollow : MonoBehaviour
     {
         public Transform target;
-        public float speed = 1.0f;
+        public float speed = 2.0f;
 
         private Vector3 offset;
         private Vector3 targetPos;
