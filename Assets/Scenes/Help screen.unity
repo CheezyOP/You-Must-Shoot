@@ -427,8 +427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 22, y: -86}
-  m_SizeDelta: {x: 194.9393, y: 147.576}
+  m_AnchoredPosition: {x: 28.7, y: -69.7}
+  m_SizeDelta: {x: 204.5364, y: 147.576}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &618056663
 MonoBehaviour:
@@ -463,7 +463,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Slay enemies
+  m_Text: Slay vile enemies
 --- !u!222 &618056664
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1198,10 +1198,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583551966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 736.07135, y: 235.92038, z: -23.94083}
+  m_LocalPosition: {x: 258.57135, y: -79.57962, z: -23.94083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1990540212}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1668720530
@@ -1698,7 +1698,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Acquire upgrades
+  m_Text: Acquire upgrades as time goes on
 --- !u!222 &1776673053
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1880,8 +1880,9 @@ RectTransform:
   - {fileID: 1764758839}
   - {fileID: 1994140912}
   - {fileID: 1096035998}
+  - {fileID: 1583551968}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

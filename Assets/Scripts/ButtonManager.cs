@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,11 +8,6 @@ public class ButtonManager : MonoBehaviour
     public GameObject image;
     public bool mute = false;
 
-    public void BtnRedirect(string newGameLevel)
-    {
-        SceneManager.LoadScene(newGameLevel);
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))
@@ -23,6 +16,9 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggles main theme, along with the stripe that goes through the image
+    /// </summary>
     public void ToggleMute()
     {
         Image stripe = image.GetComponent<Image>();
@@ -37,5 +33,14 @@ public class ButtonManager : MonoBehaviour
         }
         muteButton.GetComponent<AudioSource>().mute = !muteButton.GetComponent<AudioSource>().mute;
         mute = !mute;
+    }
+
+    /// <summary>
+    /// Loads new scene based on given argument
+    /// </summary>
+    /// <param name="newGameLevel">Name of the scene which needs to be switched</param>
+    public void BtnRedirect(string newGameLevel)
+    {
+        SceneManager.LoadScene(newGameLevel);
     }
 }
