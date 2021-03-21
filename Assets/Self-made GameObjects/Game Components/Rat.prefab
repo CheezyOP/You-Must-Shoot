@@ -190,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff38a51a07a92ad42868ee6fd92dc140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationName: Rat_Death
   movementScript: {fileID: 6323138492035583865}
 --- !u!114 &-5299026115887862276
 MonoBehaviour:
@@ -205,3 +204,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: Rat_Attack
+  attackCoolDown: 2

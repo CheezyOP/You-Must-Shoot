@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Cainos.PixelArtTopDown_Basic
@@ -33,8 +31,6 @@ namespace Cainos.PixelArtTopDown_Basic
         public LivesManager livesManager;
         public Shooting shotScript;
 
-        //Vector2 mousePos;
-
         private void Start()
         {
             animator = GetComponent<Animator>();
@@ -43,8 +39,12 @@ namespace Cainos.PixelArtTopDown_Basic
             throwSpeedCounter = 0;
         }
 
+        /// <summary>
+        /// Primarely used to check keyboard inputs
+        /// </summary>
         private void Update()
         {
+            /// Toggles cheats for player
             if (Input.GetKeyDown(KeyCode.C))
             {
                 if (!activatedCheats)
@@ -52,9 +52,9 @@ namespace Cainos.PixelArtTopDown_Basic
                     livesManager.ToggleInvincibility();
                     shotScript.SetStoneAmount(999);
 
-                    getMovementSpeedUpgrade();
-                    getShrinkUpgrade();
-                    getThrowSpeedUpgrade();
+                    GetMovementSpeedUpgrade();
+                    GetShrinkUpgrade();
+                    GetThrowSpeedUpgrade();
                     
                     activatedCheats = true;
                 }
@@ -65,57 +65,72 @@ namespace Cainos.PixelArtTopDown_Basic
                 }
             }
 
-            Vector2 dir = Vector2.zero;
+            /// Kills player instantly
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    livesManager.LoseLife();
+                }
+            }
+
+            /// Determines walk direction
+            Vector2 diretcion = Vector2.zero;
             if (Input.GetKey(KeyCode.A))
             {
-                dir.x = -1;
+                diretcion.x = -1;
                 animator.SetInteger("Direction", 3);
             }
             else if (Input.GetKey(KeyCode.D))
             {
-                dir.x = 1;
+                diretcion.x = 1;
                 animator.SetInteger("Direction", 2);
             }
 
             if (Input.GetKey(KeyCode.W))
             {
-                dir.y = 1;
+                diretcion.y = 1;
                 animator.SetInteger("Direction", 1);
             }
             else if (Input.GetKey(KeyCode.S))
             {
-                dir.y = -1;
+                diretcion.y = -1;
                 animator.SetInteger("Direction", 0);
             }
 
-            dir.Normalize();
-            animator.SetBool("IsMoving", dir.magnitude > 0);
+            diretcion.Normalize();
+            animator.SetBool("IsMoving", diretcion.magnitude > 0);
 
-            GetComponent<Rigidbody2D>().velocity = speed * dir;
-
-            //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            //Input.mousePosition
+            GetComponent<Rigidbody2D>().velocity = speed * diretcion;
         }
 
+        /// <summary>
+        /// Checks upgrade pickups
+        /// </summary>
+        /// <param name="collision">Collisions with upgrades</param>
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.name.Contains("MovementSpeed"))
             {
                 HandleUpgradePickup(collision);
-                getMovementSpeedUpgrade();
+                GetMovementSpeedUpgrade();
             }
             else if (collision.gameObject.name.Contains("ThrowSpeed"))
             {
                 HandleUpgradePickup(collision);
-                getThrowSpeedUpgrade();
+                GetThrowSpeedUpgrade();
             }
             else if (collision.gameObject.name.Contains("Shrink"))
             {
                 HandleUpgradePickup(collision);
-                getShrinkUpgrade();
+                GetShrinkUpgrade();
             }
         }
 
+        /// <summary>
+        /// Deletes upgrade and plays a sound
+        /// </summary>
+        /// <param name="collision">Collision to extract upgrade for deletion</param>
         private void HandleUpgradePickup(Collision2D collision)
         {
             GetComponent<AudioSource>().clip = upgradeSound;
@@ -123,7 +138,10 @@ namespace Cainos.PixelArtTopDown_Basic
             Destroy(collision.gameObject);
         }
 
-        private void getMovementSpeedUpgrade()
+        /// <summary>
+        /// Handles player's functional and graphical changes for the movement speed upgrade
+        /// </summary>
+        private void GetMovementSpeedUpgrade()
         {
             if (movementSpeedCounter == 0)
             {
@@ -152,7 +170,10 @@ namespace Cainos.PixelArtTopDown_Basic
             movementSpeedCounterText.text = movementSpeedCounter.ToString() + 'x';
         }
 
-        private void getThrowSpeedUpgrade()
+        /// <summary>
+        /// Handles player's functional and graphical changes for the throw speed upgrade
+        /// </summary>
+        private void GetThrowSpeedUpgrade()
         {
             if (throwSpeedCounter == 0)
             {
@@ -161,12 +182,12 @@ namespace Cainos.PixelArtTopDown_Basic
                 throwSpeedCounterText.color = new Color(throwSpeedCounterText.color.r, throwSpeedCounterText.color.g, throwSpeedCounterText.color.b, 255);
 
                 throwSpeedCounter++;
-                shotScript.IncreaseBulletForce(throwSpeedUpgradeIncrease);
+                shotScript.IncreaseThrowForce(throwSpeedUpgradeIncrease);
             }
             else if (throwSpeedCounter < 20)
             {
                 throwSpeedCounter++;
-                shotScript.IncreaseBulletForce(throwSpeedUpgradeIncrease);
+                shotScript.IncreaseThrowForce(throwSpeedUpgradeIncrease);
 
                 if (throwSpeedCounter == 15)
                 {
@@ -181,7 +202,10 @@ namespace Cainos.PixelArtTopDown_Basic
             throwSpeedCounterText.text = throwSpeedCounter.ToString() + 'x';
         }
 
-        private void getShrinkUpgrade()
+        /// <summary>
+        /// Handles player's functional and graphical changes for the shrink upgrade
+        /// </summary>
+        private void GetShrinkUpgrade()
         {
             transform.localScale = new Vector3((float)0.8, (float)0.8, 1);
             shrinkText.color = new Color(shrinkText.color.r, shrinkText.color.g, shrinkText.color.b, 255);

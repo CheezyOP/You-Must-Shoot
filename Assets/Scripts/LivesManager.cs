@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +9,7 @@ public class LivesManager : MonoBehaviour
     public Image heartImage3;
 
     public AudioClip meow;
-    public int lives;
+    private int lives;
 
     public Text isInvincibleText;
     private bool isInvincible;
@@ -22,6 +20,9 @@ public class LivesManager : MonoBehaviour
         isInvincible = false;
     }
 
+    /// <summary>
+    /// Handles current life, sound and visualisation upon losing life
+    /// </summary>
     public void LoseLife()
     {
         if (!isInvincible)
@@ -45,6 +46,9 @@ public class LivesManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggles invincibility of player, and handles the UI text
+    /// </summary>
     public void ToggleInvincibility()
     {
         isInvincible = !isInvincible;
