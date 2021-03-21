@@ -284,9 +284,8 @@ RectTransform:
   - {fileID: 1931834415}
   - {fileID: 1370576122}
   - {fileID: 2133343057}
-  - {fileID: 502754085}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -333,11 +332,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502754083}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 258.57135, y: -79.57962, z: -23.94083}
+  m_LocalPosition: {x: 736.07135, y: 235.92038, z: -23.94083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 464885048}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &720805759
 GameObject:
@@ -433,7 +432,7 @@ GameObject:
   - component: {fileID: 1370576124}
   - component: {fileID: 1370576123}
   m_Layer: 5
-  m_Name: WastedTitle
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
