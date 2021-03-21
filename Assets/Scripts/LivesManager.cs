@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,8 +13,8 @@ public class LivesManager : MonoBehaviour
     public AudioClip meow;
     private int lives;
 
-    public Text isInvincibleText;
     private bool isInvincible;
+    public Text invincibleText;
 
     void Start()
     {
@@ -52,13 +54,14 @@ public class LivesManager : MonoBehaviour
     public void ToggleInvincibility()
     {
         isInvincible = !isInvincible;
+
         if (isInvincible)
         {
-            isInvincibleText.color = new Color(isInvincibleText.color.r, isInvincibleText.color.g, isInvincibleText.color.b, 255);
+            invincibleText.color = new Color(invincibleText.color.r, invincibleText.color.g, invincibleText.color.b, 255);
         }
         else
         {
-            isInvincibleText.color = new Color(isInvincibleText.color.r, isInvincibleText.color.g, isInvincibleText.color.b, 0);
+            invincibleText.color = new Color(invincibleText.color.r, invincibleText.color.g, invincibleText.color.b, 0);
         }
     }
 

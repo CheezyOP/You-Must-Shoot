@@ -427,8 +427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 28.7, y: -69.7}
-  m_SizeDelta: {x: 204.5364, y: 147.576}
+  m_AnchoredPosition: {x: 22, y: -86}
+  m_SizeDelta: {x: 194.9393, y: 147.576}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &618056663
 MonoBehaviour:
@@ -463,7 +463,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Slay vile enemies
+  m_Text: Slay enemies
 --- !u!222 &618056664
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1698,7 +1698,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Acquire upgrades as time goes on
+  m_Text: Acquire upgrades
 --- !u!222 &1776673053
 CanvasRenderer:
   m_ObjectHideFlags: 0
