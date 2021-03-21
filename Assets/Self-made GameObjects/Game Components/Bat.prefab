@@ -208,4 +208,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationName: Bat_Attack
-  attackCoolDown: 2

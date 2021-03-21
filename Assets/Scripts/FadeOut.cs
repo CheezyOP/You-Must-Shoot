@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FadeOut : MonoBehaviour
@@ -5,9 +7,6 @@ public class FadeOut : MonoBehaviour
     public int fadeSpeed;
     private bool fadeOut = true;
 
-    /// <summary>
-    /// Each update makes sprite more opaque
-    /// </summary>
     void Update()
     {
         if (fadeOut)
