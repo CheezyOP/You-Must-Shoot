@@ -268,7 +268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Also, 'M' mutes main theme too, and 'K' instantly kills player for testing
+  m_Text: Also, 'M' mutes sound too, and 'K' instantly kills player for testing
 --- !u!222 &375752579
 CanvasRenderer:
   m_ObjectHideFlags: 0
