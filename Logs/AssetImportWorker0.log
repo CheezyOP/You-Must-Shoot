@@ -15,11 +15,11 @@ F:/School/Unity/2dShooter/You Must Shoot
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53023
+62732
 Successfully changed project path to: F:/School/Unity/2dShooter/You Must Shoot
 F:/School/Unity/2dShooter/You Must Shoot
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 41.06 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 31.33 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.2f1 (068178b99f32)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/Resources/UnitySubsystems
@@ -40,110 +40,16 @@ Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002008 seconds.
+Registered in 0.002642 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 32.82 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 29.55 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.070 seconds
+- Completed reload, in  2.647 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000721 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 32.43 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.794 seconds
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.31 seconds
-Refreshing native plugins compatible for Editor in 0.35 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1815 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.3 MB.
-System memory in use after: 85.2 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 2259.
-Total: 1.876000 ms (FindLiveObjects: 0.202600 ms CreateObjectMapping: 0.100200 ms MarkObjects: 1.462600 ms  DeleteObjects: 0.109400 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Cainos/Pixel Art Top Down - Basic/Script/TopDownCharacterController.cs
-  artifactKey: Guid(abd146093740c5d43b5909c7913f3109) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Cainos/Pixel Art Top Down - Basic/Script/TopDownCharacterController.cs using Guid(abd146093740c5d43b5909c7913f3109) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72f33b100add17ef57645abd606bf97e') in 0.070817 seconds
-  Import took 0.082984 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001105 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.33 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.701 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.32 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1808 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.2 MB.
-System memory in use after: 85.2 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2262.
-Total: 2.243400 ms (FindLiveObjects: 0.329100 ms CreateObjectMapping: 0.136800 ms MarkObjects: 1.663500 ms  DeleteObjects: 0.112800 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 546.312174 seconds.
-  path: Assets/Cainos/Pixel Art Top Down - Basic/Script/TopDownCharacterController.cs
-  artifactKey: Guid(abd146093740c5d43b5909c7913f3109) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Cainos/Pixel Art Top Down - Basic/Script/TopDownCharacterController.cs using Guid(abd146093740c5d43b5909c7913f3109) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7afef6325198042b4ac13ce5e88e291') in 0.027980 seconds
-  Import took 0.047976 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.000737 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.34 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.686 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.35 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1808 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 85.4 MB.
-System memory in use after: 85.4 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2265.
-Total: 2.342200 ms (FindLiveObjects: 0.284700 ms CreateObjectMapping: 0.067300 ms MarkObjects: 1.880700 ms  DeleteObjects: 0.108100 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 84.267192 seconds.
-  path: Assets/Standard map.prefab
-  artifactKey: Guid(24ed8a26692342744be8b0570b24bcdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Standard map.prefab using Guid(24ed8a26692342744be8b0570b24bcdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68205439e54dfabcd807f1ab7c413d14') in 0.232963 seconds
-  Import took 0.257184 seconds .
-
+Registered in 0.000648 seconds.

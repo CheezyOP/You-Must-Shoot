@@ -55,12 +55,10 @@ namespace Cainos.PixelArtTopDown_Basic
                     getMovementSpeedUpgrade();
                     getShrinkUpgrade();
                     getThrowSpeedUpgrade();
-                    
                     activatedCheats = true;
                 }
                 else
                 {
-                    livesManager.ToggleInvincibility();
                     activatedCheats = false;
                 }
             }
