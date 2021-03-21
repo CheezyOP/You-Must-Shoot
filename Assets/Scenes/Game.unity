@@ -68205,7 +68205,7 @@ MonoBehaviour:
   heartImage2: {fileID: 870128631}
   heartImage3: {fileID: 1504503770}
   meow: {fileID: 8300000, guid: b65b77bda9cfd1e4e8d7e03df598d272, type: 3}
-  invincibleText: {fileID: 0}
+  invincibleText: {fileID: 1923410540}
 --- !u!1 &1657403414
 GameObject:
   m_ObjectHideFlags: 0
