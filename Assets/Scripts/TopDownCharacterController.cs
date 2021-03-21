@@ -62,6 +62,7 @@ namespace Cainos.PixelArtTopDown_Basic
                 }
                 else
                 {
+                    livesManager.ToggleInvincibility();
                     activatedCheats = false;
                 }
             }

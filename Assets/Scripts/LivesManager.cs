@@ -11,8 +11,10 @@ public class LivesManager : MonoBehaviour
     public Image heartImage3;
 
     public AudioClip meow;
-    public int lives;
+    private int lives;
+
     private bool isInvincible;
+    public Text invincibleText;
 
     void Start()
     {
@@ -52,6 +54,15 @@ public class LivesManager : MonoBehaviour
     public void ToggleInvincibility()
     {
         isInvincible = !isInvincible;
+
+        if (isInvincible)
+        {
+            invincibleText.color = new Color(invincibleText.color.r, invincibleText.color.g, invincibleText.color.b, 255);
+        }
+        else
+        {
+            invincibleText.color = new Color(invincibleText.color.r, invincibleText.color.g, invincibleText.color.b, 0);
+        }
     }
 
     private void PlayMeow()
