@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +6,12 @@ public class TitleFadout : MonoBehaviour
     public TimeScript timeScript;
     public int timeBeforeFading;
     public int fadeSpeed;
+
     private bool fadeOut = true;
 
+    /// <summary>
+    /// Manages initial game text/title fadout
+    /// </summary>
     void Update()
     {
         int time = timeScript.GetTime();

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradeSpawns : MonoBehaviour
@@ -22,11 +20,14 @@ public class UpgradeSpawns : MonoBehaviour
     {
         timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
         time = timeScript.GetTime();
+
         hasBeenSpawned = false;
         nextSpawnedUpgrade = 1;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Checks and sets condition for upgrade spawns
+    /// </summary>
     void Update()
     {
         time = timeScript.GetTime();
@@ -42,9 +43,11 @@ public class UpgradeSpawns : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Spawns upgrade based on given conditions
+    /// </summary>
     private void SpawnUpgrade()
     {
-        Transform newTransform = gameObject.AddComponent<Transform>();
         Vector3 upgradePlacement = new Vector3(Random.Range(minX, maxX), Random.Range(minY, maxY), 0);
         if (nextSpawnedUpgrade < 3)
         {

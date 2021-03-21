@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
     public string animationName;
+    public int attackCoolDown;
 
     private LivesManager playerLives;
     private Animator anim;
@@ -13,9 +12,9 @@ public class EnemyAttack : MonoBehaviour
     private int collisionTime;
     private int time;
     private int previousTime;
+
     private bool needsToLoseLife;
 
-    // Start is called before the first frame update
     void Start()
     {
         previousTime = 0;
@@ -23,12 +22,14 @@ public class EnemyAttack : MonoBehaviour
         time = 0;
         needsToLoseLife = false;
         anim = GetComponent<Animator>();
+
         playerLives = GameObject.FindGameObjectWithTag("PF Player").GetComponent<LivesManager>();
         timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
     }
 
     private void Update()
     {
+        /// Done this in order to time the attack animation with the hurt sound
         time = timeScript.GetTime();
         if (time - previousTime == 1 && needsToLoseLife)
         {
@@ -37,12 +38,16 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Used to attack player
+    /// </summary>
+    /// <param name="collision">Collision, of which player and enemy could be extracted</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Contains("Player"))
         {
             collisionTime = timeScript.GetTime();
-            if (collisionTime - previousTime > 2)
+            if (collisionTime - previousTime > attackCoolDown)
             {
                 anim.Play(animationName);
                 previousTime = collisionTime;
