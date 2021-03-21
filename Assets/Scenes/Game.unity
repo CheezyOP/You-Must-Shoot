@@ -552,8 +552,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.9, y: -84.9}
-  m_SizeDelta: {x: 57.3872, y: 30}
+  m_AnchoredPosition: {x: 36.1931, y: -84.9}
+  m_SizeDelta: {x: 95.7055, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45882602
 MonoBehaviour:
@@ -68205,7 +68205,7 @@ MonoBehaviour:
   heartImage2: {fileID: 870128631}
   heartImage3: {fileID: 1504503770}
   meow: {fileID: 8300000, guid: b65b77bda9cfd1e4e8d7e03df598d272, type: 3}
-  lives: 0
+  invincibleText: {fileID: 0}
 --- !u!1 &1657403414
 GameObject:
   m_ObjectHideFlags: 0
@@ -71423,7 +71423,6 @@ GameObject:
   - component: {fileID: 1923410538}
   - component: {fileID: 1923410541}
   - component: {fileID: 1923410540}
-  - component: {fileID: 1923410539}
   m_Layer: 5
   m_Name: InvincibleText
   m_TagString: Time
@@ -71450,18 +71449,6 @@ RectTransform:
   m_AnchoredPosition: {x: -400.24857, y: 61}
   m_SizeDelta: {x: 131.2179, y: 44.4907}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1923410539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1923410537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c198e2e3570c8349a9149008f438437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1923410540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71475,7 +71462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -71495,7 +71482,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Invincible
+  m_Text: Immortal
 --- !u!222 &1923410541
 CanvasRenderer:
   m_ObjectHideFlags: 0
