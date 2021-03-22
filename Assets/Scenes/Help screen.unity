@@ -1698,7 +1698,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Acquire upgrades
+  m_Text: Acquire upgrades as time goes on
 --- !u!222 &1776673053
 CanvasRenderer:
   m_ObjectHideFlags: 0
